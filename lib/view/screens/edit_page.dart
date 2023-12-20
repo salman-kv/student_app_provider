@@ -176,7 +176,7 @@ class EditPage extends StatelessWidget {
                     onPressed: () {
                       context.read<MyProvider>().selectImage();
                     },
-                    child: const Text('SUBMIT')),
+                    child: const Text('Select image')),
               )),
               ElevatedButton(
                   style:
@@ -202,7 +202,7 @@ class EditPage extends StatelessWidget {
                       successSnackBar(context, 'Data Updated');
                     }
                   },
-                  child: const Text('select image')),
+                  child: const Text('SUBMIT')),
             ],
           ),
         ),

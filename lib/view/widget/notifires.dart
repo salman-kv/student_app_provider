@@ -26,7 +26,7 @@ successSnackBar(BuildContext context, String data) {
   );
 }
 
-deleteAlert(BuildContext context ,String id) {
+deleteAlert(BuildContext context, String id) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -38,10 +38,13 @@ deleteAlert(BuildContext context ,String id) {
                 Navigator.of(context).pop();
               },
               child: const Text('NO')),
-          ElevatedButton(onPressed: () {
-            context.read<MyProvider>().deleteData(id);
-            Navigator.of(context).pop();
-          }, child: const Text('YES')),
+          ElevatedButton(
+              onPressed: () {
+                context.read<MyProvider>().deleteData(id);
+                Navigator.of(context).pop();
+                errorSnackBar(context, 'Data deleted');
+              },
+              child: const Text('YES')),
         ],
       );
     },

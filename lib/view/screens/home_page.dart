@@ -25,20 +25,23 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: Consumer<MyProvider>(
                 builder: (context, value, child) {
-                  return GridView.count(
+                  return value.studentDetails.isEmpty ? const Center(child: Text('No data found',style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20
+                  ),),) : GridView.count(
                     physics: const ScrollPhysics(),
                     crossAxisCount: 2,
                     children: List.generate(
-                      context.watch<MyProvider>().studentDetails.length,
+                      value.studentDetails.length,
                       (index) => GestureDetector(
                         onTap: () {
-                          context.read<MyProvider>().editStudentFunction(context.read<MyProvider>().studentDetails[index]);
+                          value.editStudentFunction(value.studentDetails[index]);
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                             return const ShowStudent();
                           },));
                         },
                         child: singleStudentShow(context,
-                            context.watch<MyProvider>().studentDetails[index]),
+                            value.studentDetails[index]),
                       ),
                     ),
                   );

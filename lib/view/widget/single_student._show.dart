@@ -7,15 +7,12 @@ import 'package:student_app_provider/model/student_model.dart';
 import 'package:student_app_provider/view/screens/edit_page.dart';
 import 'package:student_app_provider/view/widget/notifires.dart';
 
-
 Widget singleStudentShow(BuildContext context, StudentModel data) {
   return Container(
     // height: 600,
     // width: MediaQuery.of(context).size.width / 2,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      color: Colors.deepPurple
-    ),
+        borderRadius: BorderRadius.circular(10), color: Colors.deepPurple),
     margin: const EdgeInsets.all(10),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -30,7 +27,8 @@ Widget singleStudentShow(BuildContext context, StudentModel data) {
           padding: const EdgeInsets.all(5.0),
           child: Text(
             data.name,
-            style: const TextStyle(color: Colors.white, fontSize: 22,fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
           ),
         ),
         Row(
@@ -39,9 +37,11 @@ Widget singleStudentShow(BuildContext context, StudentModel data) {
             IconButton(
               onPressed: () {
                 context.read<MyProvider>().editStudentFunction(data);
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                  return EditPage();
-                },));
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) {
+                    return EditPage();
+                  },
+                ));
               },
               icon: const Icon(
                 Icons.edit,
@@ -51,9 +51,7 @@ Widget singleStudentShow(BuildContext context, StudentModel data) {
             ),
             IconButton(
               onPressed: () {
-                deleteAlert(context,data.id);
-
-                
+                deleteAlert(context, data.id);
               },
               icon: const Icon(
                 Icons.delete,

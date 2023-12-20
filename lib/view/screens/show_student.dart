@@ -16,7 +16,7 @@ class ShowStudent extends StatelessWidget {
           color: const Color.fromARGB(255, 227, 188, 234),
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: SizedBox(
           width: double.infinity,
           child: Column(
